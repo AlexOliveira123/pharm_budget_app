@@ -7,8 +7,8 @@ abstract class AppColors {
   static Color secondaryLight = const Color(0XFFFFFAF3);
   static Color accent = const Color(0XFFFF5A5A);
   static Color accentLight = const Color(0XFFE8D8D8);
-  static Color background = const Color(0XFFFFFFFF);
-  static Color background2 = const Color(0XFFF9FAFA);
+  static Color white100 = const Color(0XFFFFFFFF);
+  static Color white80 = const Color(0XFFF9FAFA);
   static Color grey100 = const Color(0XFF111111);
   static Color grey80 = const Color(0XFF50555C);
   static Color grey60 = const Color(0XFFADB3BC);
