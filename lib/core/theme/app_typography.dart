@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTypography {
-  static const headline1 = TextStyle(fontFamily: 'Manrope', fontSize: 40, fontWeight: FontWeight.bold);
-  static const headline3 = TextStyle(fontFamily: 'Manrope', fontSize: 24, fontWeight: FontWeight.bold);
-  static const headline2 = TextStyle(fontFamily: 'Manrope', fontSize: 28, fontWeight: FontWeight.bold);
-  static const headline4 = TextStyle(fontFamily: 'Manrope', fontSize: 16, fontWeight: FontWeight.bold);
-  static const headline5 = TextStyle(fontFamily: 'Manrope', fontSize: 14, fontWeight: FontWeight.bold);
-  static const headline6 = TextStyle(fontFamily: 'Manrope', fontSize: 12, fontWeight: FontWeight.bold);
-  static const bodyLarge = TextStyle(fontFamily: 'Nunito Sans', fontSize: 16, fontWeight: FontWeight.w400);
-  static const bodyMedium = TextStyle(fontFamily: 'Nunito Sans', fontSize: 14, fontWeight: FontWeight.w400);
-  static const bodySmall = TextStyle(fontFamily: 'Nunito Sans', fontSize: 12, fontWeight: FontWeight.w400);
-  static const buttonLarge = TextStyle(fontFamily: 'Manrope', fontSize: 16, fontWeight: FontWeight.w600);
-  static const buttonMedium = TextStyle(fontFamily: 'Manrope', fontSize: 14, fontWeight: FontWeight.w600);
-  static const buttonSmall = TextStyle(fontFamily: 'Manrope', fontSize: 12, fontWeight: FontWeight.w600);
+  static final headline1 = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold));
+  static final headline2 = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold));
+  static final headline3 = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold));
+  static final headline4 = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+  static final headline5 = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold));
+  static final headline6 = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold));
+  static final bodyLarge = GoogleFonts.nunitoSans(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400));
+  static final bodyMedium = GoogleFonts.nunitoSans(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400));
+  static final bodySmall = GoogleFonts.nunitoSans(textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400));
+  static final buttonLarge = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600));
+  static final buttonMedium = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600));
+  static final buttonSmall = GoogleFonts.manrope(textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600));
 }
