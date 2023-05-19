@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pharm_budget_app/core/components/spacers/vertical_spacer.dart';
-import 'package:pharm_budget_app/core/theme/app_images.dart';
-import 'package:pharm_budget_app/core/theme/app_typography.dart';
+import 'package:flutter/services.dart';
 
+import '../../../core/common/regex_consts.dart';
 import '../../../core/components/buttons/primary_button.dart';
 import '../../../core/components/fields/input_field.dart';
+import '../../../core/components/spacers/vertical_spacer.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_images.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/theme/app_typography.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -35,6 +37,11 @@ class _LoginPageState extends State<LoginPage> {
                 InputField(
                   label: 'Nome do usuário',
                   preffixIcon: Icon(Icons.person_outline, color: AppColors.darkBlue),
+                  keyboardType: TextInputType.emailAddress,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.deny(RegExp(RegexConsts.emoji)),
+                    FilteringTextInputFormatter.deny(RegExp(RegexConsts.whiteSpace)),
+                  ],
                 ),
                 VerticalSpacer.x4(),
                 InputField(
@@ -49,18 +56,6 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {},
                 ),
                 VerticalSpacer.x8(),
-                GestureDetector(
-                  onTap: () {},
-                  child: RichText(
-                    text: TextSpan(
-                      style: AppTypography.bodyMedium.copyWith(color: AppColors.grey60),
-                      text: 'Ainda não possui cadastro? ',
-                      children: [
-                        TextSpan(text: 'Crie sua conta!', style: TextStyle(color: AppColors.secondary)),
-                      ],
-                    ),
-                  ),
-                )
               ],
             ),
           ),
