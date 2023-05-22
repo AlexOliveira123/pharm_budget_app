@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pharm_budget_app/src/core/components/spacers/vertical_spacer.dart';
 
 import '../../../core/components/buttons/primary_button.dart';
+import '../../../core/components/spacers/vertical_spacer.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_typography.dart';
-import 'widgets/product_item.dart';
+import '../../common/widgets/product_item.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});

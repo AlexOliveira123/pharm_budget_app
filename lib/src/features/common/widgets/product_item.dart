@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/components/divider/line.dart';
-import '../../../../core/components/spacers/horizontal_spacer.dart';
-import '../../../../core/components/spacers/vertical_spacer.dart';
-import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_images.dart';
-import '../../../../core/theme/app_spacing.dart';
-import '../../../../core/theme/app_typography.dart';
+import '../../../core/components/divider/line.dart';
+import '../../../core/components/spacers/horizontal_spacer.dart';
+import '../../../core/components/spacers/vertical_spacer.dart';
+import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_images.dart';
+import '../../../core/theme/app_spacing.dart';
+import '../../../core/theme/app_typography.dart';
 
 part 'circle_button.dart';
 part 'quantity_button.dart';
@@ -25,7 +25,7 @@ class ProductItem extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(AppImages.tatumMedicine, height: 40),
+              Image.asset(AppImages.tatumMedicine),
               Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +46,7 @@ class ProductItem extends StatelessWidget {
               ),
             ],
           ),
-          VerticalSpacer.x6(),
+          VerticalSpacer.x2(),
           const Line()
         ],
       ),
