@@ -5,7 +5,7 @@ import '../../theme/app_spacing.dart';
 class HorizontalSpacer extends StatelessWidget {
   final double _spacing;
 
-  const HorizontalSpacer._({super.key, required double spacing}) : _spacing = spacing;
+  const HorizontalSpacer._({required double spacing}) : _spacing = spacing;
 
   factory HorizontalSpacer.x1() {
     return const HorizontalSpacer._(spacing: AppSpacing.x1);

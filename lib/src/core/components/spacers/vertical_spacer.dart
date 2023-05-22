@@ -5,7 +5,7 @@ import 'package:pharm_budget_app/src/core/theme/app_spacing.dart';
 class VerticalSpacer extends StatelessWidget {
   final double _spacing;
 
-  const VerticalSpacer._({super.key, required double spacing}) : _spacing = spacing;
+  const VerticalSpacer._({required double spacing}) : _spacing = spacing;
 
   factory VerticalSpacer.x1() {
     return const VerticalSpacer._(spacing: AppSpacing.x1);

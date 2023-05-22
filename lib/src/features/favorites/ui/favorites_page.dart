@@ -20,7 +20,7 @@ class FavoritesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Favorites', style: AppTypography.headline4.copyWith(color: AppColors.grey100)),
+        title: Text('Favoritos', style: AppTypography.headline4.copyWith(color: AppColors.grey100)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: AppSpacing.x4, horizontal: AppSpacing.x6),
