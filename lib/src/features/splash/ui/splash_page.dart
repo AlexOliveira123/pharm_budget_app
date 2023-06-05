@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/common/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_images.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_typography.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      Navigator.of(context).popAndPushNamed(AppRoutes.login);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
