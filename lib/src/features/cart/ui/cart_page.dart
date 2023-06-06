@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharm_budget_app/src/features/search/model/product_model.dart';
 
 import '../../../core/components/buttons/primary_button.dart';
 import '../../../core/components/spacers/vertical_spacer.dart';
@@ -12,6 +13,11 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final productModel = ProductModel(
+      id: 1,
+      categoryId: 1,
+      name: 'Tatum Verde spray para uso tópico aplicacão tópica, 30ml',
+    );
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -23,8 +29,8 @@ class CartPage extends StatelessWidget {
           children: [
             Expanded(
               child: ListView(
-                children: const [
-                  ProductItem(),
+                children: [
+                  ProductItem(productModel: productModel, showDelete: true),
                 ],
               ),
             ),

@@ -12,6 +12,7 @@ class SearchViewModel extends Cubit<SearchState> {
   SearchViewModel(this._repository) : super(InitialState());
 
   Future<void> searchProduct(String value) async {
+    if (value.trim().isEmpty) return emit(SearchEmptyState());
     try {
       emit(LoadingState());
       final result = await _repository.getProductByName(value);

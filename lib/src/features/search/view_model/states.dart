@@ -26,6 +26,11 @@ class LoadedEmptyState extends SearchState {
   List<Object> get props => [];
 }
 
+class SearchEmptyState extends SearchState {
+  @override
+  List<Object> get props => [];
+}
+
 class ErrorState extends SearchState {
   final String message;
 

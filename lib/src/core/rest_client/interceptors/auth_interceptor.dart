@@ -14,7 +14,7 @@ class AuthInterceptor extends Interceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) async {
-    if (err.response?.statusCode == 401) {
+    if (err.response?.statusCode == 401 || err.response?.statusCode == 403) {
       GlobalContext.i.loginExpire();
       handler.next(err);
     } else {

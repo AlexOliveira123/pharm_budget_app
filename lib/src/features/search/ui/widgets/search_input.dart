@@ -2,9 +2,11 @@ part of '../search_page.dart';
 
 class _SearchInput extends StatefulWidget {
   final void Function(String) onChanged;
+  final void Function() onClear;
 
   const _SearchInput({
     required this.onChanged,
+    required this.onClear,
   });
 
   @override
@@ -37,6 +39,7 @@ class _SearchInputState extends State<_SearchInput> {
   void clearField() {
     if (_controller.text.isNotEmpty) {
       _controller.clear();
+      widget.onClear();
       setState(() {});
     }
   }

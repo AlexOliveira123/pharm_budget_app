@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharm_budget_app/src/features/login/view_model/login_view_model.dart';
+import 'package:pharm_budget_app/src/features/search/view_model/search_view_model.dart';
 
 import 'src/core/common/app_routes.dart';
 import 'src/core/config/env.dart';
@@ -42,11 +43,12 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => LoginViewModel(context.read<IAuthRepository>())),
+          BlocProvider(create: (context) => SearchViewModel(context.read<ISearchRepository>()))
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           navigatorKey: _navKey,
-          title: 'Pharm Budget',
+          title: 'PharmBudget',
           theme: AppTheme.theme,
           initialRoute: AppRoutes.splash,
           routes: {

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharm_budget_app/src/features/login/view_model/login_view_model.dart';
+import 'package:pharm_budget_app/src/features/search/view_model/search_view_model.dart';
 
 import '../../../core/components/spacers/horizontal_spacer.dart';
 import '../../../core/theme/app_colors.dart';
@@ -26,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _currentIndex = 0;
+    _currentIndex = 2;
   }
 
   getBottomNavigationBarItems() {
@@ -55,6 +58,10 @@ class _HomePageState extends State<HomePage> {
     return pages[index];
   }
 
+  clearSeachField() {
+    context.read<SearchViewModel>().searchProduct('');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +73,7 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _currentIndex,
         onTap: (index) {
           _currentIndex = index;
+          if (_currentIndex == 1) clearSeachField();
           setState(() {});
         },
         items: getBottomNavigationBarItems(),

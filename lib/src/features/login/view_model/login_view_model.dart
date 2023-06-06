@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/exceptions/repository_exception.dart';
 import '../../../core/exceptions/unauthorized_exception.dart';
@@ -15,8 +16,9 @@ class LoginViewModel extends Cubit<LoginState> {
   Future<void> login(String email, String password) async {
     try {
       emit(LoadingState());
-      await Future.delayed(const Duration(milliseconds: 1500));
-      await _authRepository.auth(email, password);
+      final accessToken = await _authRepository.auth(email, password);
+      final sp = await SharedPreferences.getInstance();
+      await sp.setString('accessToken', accessToken);
       emit(LoggedState());
     } on UnauthorizedException catch (e) {
       emit(ErrorState(e.message));

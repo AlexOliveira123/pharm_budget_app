@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../common/app_routes.dart';
+import '../theme/app_colors.dart';
 
 class GlobalContext {
   late final GlobalKey<NavigatorState> _navigatorKey;
@@ -15,7 +16,8 @@ class GlobalContext {
     return _instance!;
   }
 
-  GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
+  static bool _open = false;
+
   set navigatorKey(GlobalKey<NavigatorState> key) => _navigatorKey = key;
 
   Future<void> loginExpire() async {
@@ -26,11 +28,15 @@ class GlobalContext {
   }
 
   _showSnackBar() {
-    ScaffoldMessenger.of(_navigatorKey.currentContext!).showSnackBar(
-      const SnackBar(
-        backgroundColor: Colors.black,
-        content: Text('Login expirado!'),
-      ),
-    );
+    if (!_open) {
+      _open = true;
+      ScaffoldMessenger.of(_navigatorKey.currentContext!).showSnackBar(
+        SnackBar(
+          backgroundColor: AppColors.accent,
+          content: const Text('Login expirado!'),
+        ),
+      );
+      Future.delayed(const Duration(milliseconds: 2000), () => _open = false);
+    }
   }
 }

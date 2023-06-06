@@ -17,10 +17,10 @@ class AuthRepository implements IAuthRepository {
   Future<String> auth(String email, String password) async {
     try {
       final response = await _restClient.auth().post('/auth/', data: {'login': email, 'password': password});
-      return response.data['access_token'];
+      return (response.data['access_token'] as String).replaceAll('Bearer ', '');
     } on DioError catch (e, s) {
       if (e.response?.statusCode == 403) {
-        throw UnauthorizedException(e.response?.statusMessage ?? kDefaultErrorMessage);
+        throw UnauthorizedException(e.response?.data['message'] ?? kDefaultErrorMessage);
       }
       debugPrintStack(label: 'getProductByName - $e', stackTrace: s);
       throw RepositoryException(kDefaultErrorMessage);

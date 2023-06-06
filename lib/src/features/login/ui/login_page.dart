@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/common/app_routes.dart';
 import '../../../core/common/regex_consts.dart';
 import '../../../core/components/buttons/primary_button.dart';
+import '../../../core/components/dialog/custom_dialog.dart';
 import '../../../core/components/fields/input_field.dart';
 import '../../../core/components/spacers/vertical_spacer.dart';
 import '../../../core/theme/app_colors.dart';
@@ -45,8 +47,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return BlocListener<LoginViewModel, LoginState>(
       listener: (context, state) {
+        if (state is LoggedState) {
+          Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.home, (route) => route.isFirst);
+          return;
+        }
         if (state is ErrorState) {
-          //show error dialog
+          showCustomDialog(context, subtitle: state.message);
         }
       },
       child: Scaffold(

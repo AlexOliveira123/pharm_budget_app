@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pharm_budget_app/src/core/components/spacers/vertical_spacer.dart';
-import 'package:pharm_budget_app/src/core/theme/app_typography.dart';
 
+import '../../../core/common/app_routes.dart';
 import '../../../core/components/divider/line.dart';
+import '../../../core/components/spacers/vertical_spacer.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/theme/app_typography.dart';
 
 part 'widgets/profile_item.dart';
 
@@ -43,7 +44,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () => Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.splash, (route) => route.isFirst),
               child: Text('SAIR', style: AppTypography.bodyMedium.copyWith(color: AppColors.primary)),
             ),
             VerticalSpacer.x2()

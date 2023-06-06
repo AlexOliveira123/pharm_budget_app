@@ -8,4 +8,5 @@ abstract class AppImages {
   static const medicines3 = '$_path/medicines2.png';
   static const medicines4 = '$_path/medicines3.png';
   static const tatumMedicine = '$_path/tatum_medicine.png';
+  static const noImage = '$_path/no_image.png';
 }
