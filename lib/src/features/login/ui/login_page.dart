@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       VerticalSpacer.x8(),
                       BlocBuilder<LoginViewModel, LoginState>(
-                        buildWhen: (previous, current) => current is ValidateState,
+                        buildWhen: (previous, current) => previous is ValidateState || current is ValidateState,
                         builder: (context, state) {
                           return PrimaryButton(
                             label: 'Entrar',
