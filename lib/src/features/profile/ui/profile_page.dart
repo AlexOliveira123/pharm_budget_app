@@ -17,6 +17,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        centerTitle: true,
         title: Text('Perfil', style: AppTypography.headline4.copyWith(color: AppColors.grey100)),
       ),
       body: Padding(

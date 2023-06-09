@@ -51,6 +51,7 @@ class _SearchPageState extends State<SearchPage> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
+          centerTitle: true,
           title: Text('Produtos', style: AppTypography.headline4.copyWith(color: AppColors.grey100)),
         ),
         body: Padding(
