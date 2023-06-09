@@ -1,5 +1,5 @@
 abstract class AppImages {
-  static const _path = 'assets/';
+  static const _path = 'assets';
 
   static const logo = '$_path/logo.png';
   static const favorites = '$_path/favorites.png';

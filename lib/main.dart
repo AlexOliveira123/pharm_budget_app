@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharm_budget_app/src/features/login/view_model/login_view_model.dart';
 import 'package:pharm_budget_app/src/features/search/view_model/search_view_model.dart';
@@ -21,6 +22,8 @@ import 'src/features/search/ui/search_page.dart';
 import 'src/features/splash/ui/splash_page.dart';
 
 void main() async {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+
   await Env.i.load();
   runApp(MyApp());
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharm_budget_app/src/features/login/view_model/login_view_model.dart';
-import 'package:pharm_budget_app/src/features/search/view_model/search_view_model.dart';
 
 import '../../../core/components/spacers/horizontal_spacer.dart';
 import '../../../core/theme/app_colors.dart';
@@ -11,6 +9,7 @@ import '../../cart/ui/cart_page.dart';
 import '../../favorites/ui/favorites_page.dart';
 import '../../profile/ui/profile_page.dart';
 import '../../search/ui/search_page.dart';
+import '../../search/view_model/search_view_model.dart';
 import 'widgets/home_content.dart';
 
 part 'widgets/app_bar_content.dart';

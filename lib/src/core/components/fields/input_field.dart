@@ -14,6 +14,7 @@ class InputField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final ValueChanged<String>? onChanged;
 
   InputField({
     super.key,
@@ -24,6 +25,7 @@ class InputField extends StatelessWidget {
     this.inputFormatters,
     this.keyboardType = TextInputType.text,
     this.controller,
+    this.onChanged,
   }) : _obscureText = ValueNotifier(obscureText);
 
   @override
@@ -34,6 +36,7 @@ class InputField extends StatelessWidget {
       valueListenable: _obscureText,
       builder: (_, isObscure, child) {
         return TextField(
+          onChanged: onChanged,
           controller: controller,
           inputFormatters: inputFormatters,
           obscureText: isObscure,

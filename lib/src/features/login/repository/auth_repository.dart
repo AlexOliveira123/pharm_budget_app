@@ -16,7 +16,7 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<String> auth(String email, String password) async {
     try {
-      final response = await _restClient.auth().post('/auth/', data: {'login': email, 'password': password});
+      final response = await _restClient.unauth().post('/auth/', data: {'login': email, 'password': password});
       return (response.data['access_token'] as String).replaceAll('Bearer ', '');
     } on DioError catch (e, s) {
       if (e.response?.statusCode == 403) {

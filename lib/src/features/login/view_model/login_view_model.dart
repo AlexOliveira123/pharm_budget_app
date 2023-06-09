@@ -13,6 +13,14 @@ class LoginViewModel extends Cubit<LoginState> {
 
   LoginViewModel(this._authRepository) : super(InitialState());
 
+  void validate(String email, String password) {
+    if (email.isEmpty || password.isEmpty) {
+      emit(InvalidDataState());
+    } else {
+      emit(ValidDataState());
+    }
+  }
+
   Future<void> login(String email, String password) async {
     try {
       emit(LoadingState());

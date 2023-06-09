@@ -43,6 +43,10 @@ class _LoginPageState extends State<LoginPage> {
     _passwordController.dispose();
   }
 
+  void onChanged() {
+    _loginViewModel.validate(_loginController.text, _passwordController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginViewModel, LoginState>(
@@ -74,6 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       VerticalSpacer.x6(),
                       InputField(
                         label: 'Nome do usuário',
+                        onChanged: (_) => onChanged(),
                         controller: _loginController,
                         preffixIcon: Icon(Icons.person_outline, color: AppColors.darkBlue),
                         keyboardType: TextInputType.emailAddress,
@@ -85,15 +90,21 @@ class _LoginPageState extends State<LoginPage> {
                       VerticalSpacer.x4(),
                       InputField(
                         label: 'Senha',
+                        onChanged: (_) => onChanged(),
                         controller: _passwordController,
                         preffixIcon: Icon(Icons.lock_outlined, color: AppColors.darkBlue),
                         obscureText: true,
                       ),
                       VerticalSpacer.x8(),
-                      PrimaryButton(
-                        label: 'Entrar',
-                        isEnabled: true,
-                        onPressed: () => _loginViewModel.login(_loginController.text, _passwordController.text),
+                      BlocBuilder<LoginViewModel, LoginState>(
+                        buildWhen: (previous, current) => current is ValidateState,
+                        builder: (context, state) {
+                          return PrimaryButton(
+                            label: 'Entrar',
+                            isEnabled: state is ValidDataState,
+                            onPressed: () => _loginViewModel.login(_loginController.text, _passwordController.text),
+                          );
+                        },
                       ),
                       VerticalSpacer.x8(),
                     ],
